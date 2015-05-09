@@ -7,17 +7,24 @@ app.directive('videoChat', function(opentokFactory) {
     restrict: 'E',
     templateUrl: 'vchat.html',
     link: function(scope) {
-      opentokFactory.init(function(err, session) {
-        session.publish("ot-publisher");
-        scope.OTsession = session;
-        session.on("streamCreated", function(event) {
-          // streamContainer is a DOM element
-          scope.streams = opentokFactory.streams();
-          session.emit("OTLayout");
+      scope.$on('authorized!', function() {
+        console.log('authorized!');
+        opentokFactory.init(function(err, session) {
+          session.publish("ot-publisher");
+          scope.OTsession = session;
+          session.on("streamCreated", function(event) {
+            // streamContainer is a DOM element
+            scope.streams = opentokFactory.streams();
+            session.emit("OTLayout");
+          });
+          
         });
-        
+        scope.streams = opentokFactory.streams();
       });
-      scope.streams = opentokFactory.streams();
+
+      scope.$on('logout', function() {
+        scope.OTsession.disconnect();
+      });
     }
   };
 });

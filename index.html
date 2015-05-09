@@ -19,11 +19,19 @@
            overflow: hidden;
        }
        ot-layout {
-        width: 50vh;
+        width: 50vw;
         height: 200px;
+       }
+       ot-subscriber {
+        position: static; 
        }
        .video-chat {
         display: inline-block;
+        position: absolute;
+        bottom: 10px;
+        width: 70vw;
+        height: 300px;
+
        }
        .OT_publisher {
         display: inline-block;
@@ -40,13 +48,13 @@
   <div ng-controller="AuthCtrl">
       <div ng-show="authData">
           <p>Hello, {{ authData.google.displayName.split(" ")[0] }}</p>
-          <button ng-click="auth.$unauth()">Logout</button>
+          <video-chat></video-chat>
+          <button ng-click="logout()">Logout</button>
       </div>
       <div ng-hide="authData">
           <p>Hey! This is Orange2Orange!</p>
           <button ng-click="auth.$authWithOAuthPopup('google')">Login With Google to Play</button>
       </div>
   </div>
-  <video-chat></video-chat>
 </body>
 </html>

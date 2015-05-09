@@ -13,10 +13,16 @@ app.controller("AuthCtrl", ["$scope", "Auth",
             });
         };
 
+        $scope.logout = function() {
+          Auth.$unauth();
+          $scope.$broadcast('logout');
+        };
+
         $scope.auth = Auth;
 
         $scope.auth.$onAuth(function(authData) {
             $scope.authData = authData;
+            if(authData) $scope.$broadcast('authorized!');
         });
     }
 ]);

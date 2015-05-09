@@ -9,17 +9,20 @@
     <script src="//static.opentok.com/v2/js/opentok.min.js"></script>
     <script src="./bower_components/opentok-angular/opentok-angular.min.js"></script>
     <script src="index.js"></script>
+    <script src="./firebaseAuth.js"></script>
 </head>
 <body ng-app="Orange2Orange">
 
-<div ng-controller="ChatCtrl">
-    <ul class="chatbox">
-        <li ng-repeat="message in messages">{{ message.from }}: {{ message.content }}</li>
-    </ul>
-    <form ng-submit="addMessage()">
-        <input type="text" ng-model="message">
-        <input type="submit" value="Add Message">
-    </form>
+<div ng-controller="AuthCtrl">
+    <div ng-show="authData">
+        <p>Hello, {{ authData.google.displayName.split(" ")[0] }}</p>
+        <button ng-click="auth.$unauth()">Logout</button>
+    </div>
+    <div ng-hide="authData">
+        <p>Hey! This is Orange2Orange!</p>
+        <button ng-click="auth.$authWithOAuthPopup('google')">Login With Google to Play</button>
+    </div>
 </div>
+
 </body>
 </html>

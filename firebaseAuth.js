@@ -1,13 +1,13 @@
 
-app.controller("AuthCtrl", ["$scope", "Auth",
-    function($scope, Auth) {
+app.controller("AuthCtrl", ["$scope", "Auth", "$rootScope",
+    function($scope, Auth, $rootScope) {
 
         $scope.login = function() {
-            $scope.authData = null;
+            $rootScope.authData = null;
             $scope.error = null;
 
             Auth.$authAnonymously().then(function(authData) {
-                $scope.authData = authData;
+                $rootScope.authData = authData;
             }).catch(function(error) {
                 $scope.error = error;
             });
@@ -21,8 +21,8 @@ app.controller("AuthCtrl", ["$scope", "Auth",
         $scope.auth = Auth;
 
         $scope.auth.$onAuth(function(authData) {
-            $scope.authData = authData;
-            if(authData) $scope.$broadcast('authorized!');
+            if(authData) $rootScope.$broadcast('authorized!');
+            $rootScope.authData = authData;
         });
     }
 ]);

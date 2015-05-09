@@ -58,17 +58,18 @@
 
   <div ng-controller="AuthCtrl">
       <div ng-hide="authData">
-          <button ng-click="auth.$authWithOAuthPopup('google')">Login With Google to Play</button>
+          <button ng-click="auth.$authWithOAuthPopup('google')" >Login With Google to Play</button>
       </div>
 
       <div ng-show="authData">
           <p>Hello, {{ authData.google.displayName.split(" ")[0] }}</p>
           <video-chat></video-chat>
-          <button ng-click="logout()">Logout</button>
+          <button class="btn btn-danger" ng-click="logout()">Logout</button>
           <div ng-controller="PromptCtrl">
-              <h3>Prompt:</h3>
+            <button ng-click="getPrompt()" class="btn btn-success">Start New Round</button>
+            <h3>Prompt:</h3>
 
-              <p>{{randoPrompt}}</p>
+            <p>{{randoPrompt}}</p>
           </div>
       </div>
 

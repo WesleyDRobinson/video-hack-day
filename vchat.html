@@ -1,0 +1,9 @@
+<div class="video-chat">
+  <ot-layout props="{animate:true}">
+    <ot-subscriber ng-repeat="stream in streams" 
+        stream="stream" 
+        session="OTsession" 
+        props="{style: {nameDisplayMode: 'off'}}">
+    </ot-subscriber>
+  </ot-layout>
+</div>

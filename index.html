@@ -11,22 +11,36 @@
     <script>ZiggeoApi.token = "2cdc6906da906aa6712a37e2ec83e045";</script>
     <script src="//static.opentok.com/v2/js/opentok.min.js"></script>
     <script src="./bower_components/opentok-angular/opentok-angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="index.js"></script>
     <script src="recorder.js"></script>
+    <script src="./firebaseAuth.js"></script>
 </head>
 <body ng-app="Orange2Orange">
-
-<div ng-controller="ChatCtrl">
-    <ul class="chatbox">
-        <li ng-repeat="message in messages">{{ message.from }}: {{ message.content }}</li>
-    </ul>
-    <form ng-submit="addMessage()">
-        <input type="text" ng-model="message">
-        <input type="submit" value="Add Message">
-    </form>
-    <ziggeo ziggeo-width=320
-            ziggeo-height=240>
-    </ziggeo>
+<div class="jumbotron">
+    <h1>It's Orange2Orange</h1>
 </div>
+
+<div ng-controller="AuthCtrl">
+    <div ng-hide="authData">
+        <button ng-click="auth.$authWithOAuthPopup('google')">Login With Google to Play</button>
+    </div>
+
+    <div ng-if="authData">
+        <p>Hello, {{ authData.google.displayName.split(" ")[0] }}</p>
+        <button ng-click="auth.$unauth()">Logout</button>
+        <div ng-controller="PromptCtrl">
+            <h3>Prompt:</h3>
+
+            <p>{{randoPrompt}}</p>
+        </div>
+    </div>
+
+    <!-- Ziggeo Upload -->
+    <div>
+        <img src="http://placekitten.com/320/180">
+    </div>
+</div>
+
 </body>
 </html>

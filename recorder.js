@@ -1,8 +1,11 @@
 'use strict';
 
-angular.module('sampleApp')
-	.controller("RecordCtrl", function($scope) {
+angular.module('Orange2Orange')
+	.controller("RecordCtrl", [function($scope) {
+
+	console.log("??");
+
 	ZiggeoApi.Events.on("submitted", function (data) {
 		alert("Submitted a new video with token '" + data.video.token + "'!");
 	});
-});
+]});

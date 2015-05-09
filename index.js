@@ -45,6 +45,14 @@ app.controller("ChatCtrl", ["$scope", "chatMessages",
         });
 
         var ref = new Firebase("https://burning-fire-1005.firebaseio.com/");
-        var auth = $firebaseAuth(ref);
+        // var auth = $firebaseAuth(ref);
     }
 ]);
+
+// app.controller("RecordCtrl",
+//     function ($scope) {
+//         ZiggeoApi.Events.on("submitted", function (data) {
+//             alert("Submitted a new video with token '" + data.video.token + "'!");
+//         });        
+//     }
+// );

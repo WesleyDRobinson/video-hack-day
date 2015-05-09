@@ -12,7 +12,8 @@
     <script src="//static.opentok.com/v2/js/opentok.min.js"></script>
     <script src="./bower_components/opentok-angular/opentok-angular.min.js"></script>
     <script src="index.js"></script>
-    <script src="recorder.js"></script>
+    <script src="record.js"></script>
+
 </head>
 <body ng-app="Orange2Orange">
 
@@ -24,9 +25,6 @@
         <input type="text" ng-model="message">
         <input type="submit" value="Add Message">
     </form>
-    <ziggeo ziggeo-width=320
-            ziggeo-height=240>
-    </ziggeo>
-</div>
+    <div ng-controller="RecordCtrl" id="ziggeo_recorder"></div>
 </body>
 </html>

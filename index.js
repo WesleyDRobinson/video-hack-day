@@ -1,5 +1,5 @@
 // define our app and dependencies (remember to include firebase!)
-var app = angular.module("sampleApp", ["firebase"]);
+var app = angular.module("Orange2Orange", ["opentok", "firebase"]);
 
 // this factory returns a synchronized array of chat messages
 app.factory("chatMessages", ["$firebaseArray",
@@ -44,7 +44,7 @@ app.controller("ChatCtrl", ["$scope", "chatMessages",
             }
         });
 
-        var ref = new Firebase("https://<your-firebase>.firebaseio.com/");
+        var ref = new Firebase("https://burning-fire-1005.firebaseio.com/");
         var auth = $firebaseAuth(ref);
     }
 ]);

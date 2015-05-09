@@ -1,6 +1,6 @@
 'use strict';
-var app = angular.module('FullstackGeneratedApp', 
-                        ['ui.router', 'fsaPreBuilt', 'opentok']);
+var app = angular.module('Orange2Orange', 
+                        ['ui.router', 'firebase', 'fsaPreBuilt', 'opentok']);
 
 app.config(function ($urlRouterProvider, $locationProvider) {
     // This turns off hashbang urls (/#about) and changes it to something normal (/about)

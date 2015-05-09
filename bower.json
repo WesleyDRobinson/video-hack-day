@@ -1,0 +1,21 @@
+{
+  "name": "video-hack-day-round1",
+  "main": "index.js",
+  "directory": "bower_components",
+  "version": "0.0.0",
+  "homepage": "https://github.com/WesleyDRobinson/video-hack-day",
+  "authors": [
+    "Wesley Robinson <Robinson.WesleyD@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "opentok-angular": "~0.3.0"
+  }
+}

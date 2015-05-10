@@ -1,7 +1,6 @@
 // define our app and dependencies (remember to include firebase!)
 var app = angular.module("Orange2Orange", ["opentok", "firebase"]);
 
-
 app.controller("PromptCtrl", ["$rootScope",
     function ($rootScope) {
 
@@ -19,8 +18,6 @@ app.controller("PromptCtrl", ["$rootScope",
             "What superpower would you give your mother?"
         ];
 
-        var number = Math.floor(Math.random() * prompts.length);
-        $rootScope.randoPrompt = prompts[number];
 
 
         $rootScope.getPrompt = function() {
@@ -30,3 +27,4 @@ app.controller("PromptCtrl", ["$rootScope",
 
     }
 ]);
+

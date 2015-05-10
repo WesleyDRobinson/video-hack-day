@@ -9,7 +9,7 @@ app.controller("PromptCtrl", ["$rootScope",
 
         ref.on('value', function(snapshot) {
           $rootScope.randoPrompt = snapshot.exists() ? snapshot.val() : "Example prompt: Dance like nobody is watching!";
-          console.log($scope.randoPrompt);
+          $rootScope.$digest();
         });
 
         var prompts = [

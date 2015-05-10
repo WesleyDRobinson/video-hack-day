@@ -1,13 +1,14 @@
 // define our app and dependencies (remember to include firebase!)
 var app = angular.module("Orange2Orange", ["opentok", "firebase"]);
 
-app.controller("PromptCtrl", ["$scope",
-    function ($scope) {
+app.controller("PromptCtrl", ["$rootScope",
+    function ($rootScope) {
+
 
         var ref = new Firebase("https://burning-fire-1005.firebaseio.com/prompt");
 
         ref.on('value', function(snapshot) {
-          $scope.randoPrompt = snapshot.exists() ? snapshot.val() : "Example prompt: Dance like nobody is watching!";
+          $rootScope.randoPrompt = snapshot.exists() ? snapshot.val() : "Example prompt: Dance like nobody is watching!";
           console.log($scope.randoPrompt);
         });
 
@@ -17,10 +18,13 @@ app.controller("PromptCtrl", ["$scope",
             "What superpower would you give your mother?"
         ];
 
-        $scope.getPrompt = function() {
+
+
+        $rootScope.getPrompt = function() {
           var number = Math.floor(Math.random() * prompts.length);
           ref.set(prompts[number]);
         };
 
     }
 ]);
+

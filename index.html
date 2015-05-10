@@ -14,6 +14,7 @@
     <script src="index.js"></script>
     <script src="firebaseAuth.js"></script>
     <script src="opentokFactory.js"></script>
+    <script src="roundsController.js"></script>
     <style type="text/css" media="screen">
        ot-publisher,ot-subscriber,ot-layout {
            display: inline-block;
@@ -76,6 +77,11 @@
       <!-- Ziggeo Upload -->
       <div>
           <img src="http://placekitten.com/320/180">
+      </div>
+      <div ng-controller="RoundCtrl">
+          <ul>
+              <li ng-repeat="video in videos">{{video.user}}{{video.video}}</li>
+          </ul>
       </div>
   </div>
 </body>

@@ -13,6 +13,7 @@ app.controller("PromptCtrl", ["$rootScope",
           if(snapshot.exists()) {
             $rootScope.recordMode = true;
             $rootScope.$broadcast('record mode');
+            jQuery('#ziggeo_recorder').show();
             jQuery('#video_list').html('');
           }
           $rootScope.randoPrompt = snapshot.exists() ? snapshot.val() : "Example prompt: Dance like nobody is watching!";

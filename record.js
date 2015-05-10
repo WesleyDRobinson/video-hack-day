@@ -29,6 +29,7 @@ app.controller("RecordCtrl",
                 myArr.forEach(function(video) {
                     jQuery('#video_list').append("<li style='float: left; margin: 10px'><ziggeo ziggeo-video=" + video.token + " ziggeo-width=320 ziggeo-height=240></ziggeo></li>");
                 });
+                jQuery('#ziggeo_recorder').hide();
             });
         });        
         });

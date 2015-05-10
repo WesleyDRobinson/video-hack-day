@@ -29,11 +29,11 @@
         height: 200px;
        }
        ot-subscriber {
-        position: static; 
+        position: relative; 
        }
        .video-chat {
         display: inline-block;
-        position: absolute;
+        position: relative;
         bottom: 10px;
         width: 70vw;
         height: 300px;
@@ -41,7 +41,7 @@
        }
        .OT_publisher {
         display: inline-block;
-        position: fixed;
+        position: absolute;
         top: 10px;
         right: 10px;
         width: 300px;
@@ -60,38 +60,40 @@
     </style>
 </head>
 <body ng-app="Orange2Orange">
-  <div class="jumbotron">
-      <h1>It's <span class="oj">O</span>range2<span class="oj">O</span>range</h1>
-
-      <p>Get ready to video!</p>
-      <!-- TokBox self view-->
-      <div class="float-right">
-          <!--<img src="http://placekitten.com/320/180">-->
-
-      </div>
-  </div>
-
-  <div ng-controller="AuthCtrl">
-      <div ng-hide="authData">
-          <button ng-click="auth.$authWithOAuthPopup('google')" >Login With Google to Play</button>
-      </div>
-
-      <div ng-show="authData">
-          <p>Hello, {{ authData.google.displayName.split(" ")[0] }}</p>
-          <video-chat></video-chat>
-          <button class="btn btn-danger" ng-click="logout()">Logout</button>
-          <div ng-controller="PromptCtrl">
-            <button ng-click="getPrompt()" class="btn btn-success">Start New Round</button>
-            <h3>Prompt:</h3>
-            <p>{{randoPrompt}}</p>
-          </div>
-      </div>
-  <!-- Ziggeo Upload -->
-  <div ng-controller="RecordCtrl" id="ziggeo_recorder"></div>
-
-  <ul id="video_list" style="list-style:none">
-  </ul>
-
+  <div class="container">
+    <div class="jumbotron">
+        <h1>It's <span class="oj">O</span>range2<span class="oj">O</span>range</h1>
+    
+        <p>Get ready to video!</p>
+        <!-- TokBox self view-->
+        <div class="float-right">
+            <!--<img src="http://placekitten.com/320/180">-->
+    
+        </div>
+    </div>
+    
+    <div ng-controller="AuthCtrl">
+        <div ng-hide="authData">
+            <button ng-click="auth.$authWithOAuthPopup('google')" >Login With Google to Play</button>
+        </div>
+    
+        <div ng-show="authData">
+            <p>Hello, {{ authData.google.displayName.split(" ")[0] }}</p>
+            <video-chat></video-chat>
+            <button class="btn btn-danger" ng-click="logout()">Logout</button>
+            <div ng-controller="PromptCtrl">
+              <button ng-click="getPrompt()" class="btn btn-success">Start New Round</button>
+              <h3>Prompt:</h3>
+              <p>{{randoPrompt}}</p>
+            </div>
+        </div>
+    <!-- Ziggeo Upload -->
+    <div ng-controller="RecordCtrl" id="ziggeo_recorder"></div>
+    
+    <ul id="video_list" style="list-style:none">
+    </ul>
+    
+    </div>
   </div>
 </body>
 </html>

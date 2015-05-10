@@ -3,13 +3,19 @@ var app = angular.module("Orange2Orange", ["opentok", "firebase"]);
 
 app.controller("PromptCtrl", ["$rootScope",
     function ($rootScope) {
+        var loaded = false;
 
 
         var ref = new Firebase("https://burning-fire-1005.firebaseio.com/prompt");
+        ref.remove();
 
         ref.on('value', function(snapshot) {
+          if(snapshot.exists()) {
+            $rootScope.recordMode = true;
+            $rootScope.$broadcast('record mode');
+            jQuery('#video_list').html('');
+          }
           $rootScope.randoPrompt = snapshot.exists() ? snapshot.val() : "Example prompt: Dance like nobody is watching!";
-          $rootScope.$digest();
         });
 
         var prompts = [
@@ -22,9 +28,8 @@ app.controller("PromptCtrl", ["$rootScope",
 
         $rootScope.getPrompt = function() {
           var number = Math.floor(Math.random() * prompts.length);
+          ref.parent().child('videos').remove();
           ref.set(prompts[number]);
-          $rootScope.recordMode = true;
-          $rootScope.$broadcast('record mode');
         };
 
     }

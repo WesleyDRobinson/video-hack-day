@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+    <script src="//assets.ziggeo.com/js/ziggeo-jquery-json2-betajs-player.min.js"></script>
+    <script>ZiggeoApi.token = "2cdc6906da906aa6712a37e2ec83e045";</script>
     <script src="//static.opentok.com/v2/js/opentok.min.js"></script>
     <script src="./bower_components/opentok-layout-js/opentok-layout.min.js"></script>
     <script src="./bower_components/opentok-angular/opentok-angular.min.js"></script>
@@ -15,6 +18,7 @@
     <script src="firebaseAuth.js"></script>
     <script src="opentokFactory.js"></script>
     <script src="roundsController.js"></script>
+    <script src="record.js"></script>
     <style type="text/css" media="screen">
        ot-publisher,ot-subscriber,ot-layout {
            display: inline-block;
@@ -79,12 +83,15 @@
           <div ng-controller="PromptCtrl">
             <button ng-click="getPrompt()" class="btn btn-success">Start New Round</button>
             <h3>Prompt:</h3>
-
             <p>{{randoPrompt}}</p>
           </div>
       </div>
+  <!-- Ziggeo Upload -->
+  <div ng-controller="RecordCtrl" id="ziggeo_recorder"></div>
 
-      <!-- Ziggeo Upload -->
+  <ul id="video_list" style="list-style:none">
+  </ul>
+
   </div>
 </body>
 </html>

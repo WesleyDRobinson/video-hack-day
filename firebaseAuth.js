@@ -23,6 +23,7 @@ app.controller("AuthCtrl", ["$scope", "Auth", "$rootScope",
         $scope.auth.$onAuth(function(authData) {
             if(authData) $rootScope.$broadcast('authorized!');
             $rootScope.authData = authData;
+                console.log(authData);
         });
     }
 ]);

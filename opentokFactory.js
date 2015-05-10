@@ -7,8 +7,7 @@ app.directive('videoChat', function(opentokFactory) {
     restrict: 'E',
     templateUrl: 'vchat.html',
     link: function(scope) {
-      scope.$on('authorized!', function() {
-        console.log('authorized!');
+      scope.$on('chat mode', function() {
         opentokFactory.init(function(err, session) {
           session.publish("ot-publisher");
           scope.OTsession = session;
@@ -23,7 +22,10 @@ app.directive('videoChat', function(opentokFactory) {
       });
 
       scope.$on('logout', function() {
-        scope.OTsession.disconnect();
+        if(scope.OTsession) scope.OTsession.disconnect();
+      });
+      scope.$on('record mode', function() {
+        if(scope.OTsession) scope.OTsession.disconnect();
       });
     }
   };

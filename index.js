@@ -23,8 +23,9 @@ app.controller("PromptCtrl", ["$rootScope",
         $rootScope.getPrompt = function() {
           var number = Math.floor(Math.random() * prompts.length);
           ref.set(prompts[number]);
+          $rootScope.recordMode = true;
+          $rootScope.$broadcast('record mode');
         };
 
     }
 ]);
-

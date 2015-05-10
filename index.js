@@ -22,7 +22,10 @@ app.controller("PromptCtrl", ["$rootScope",
         var prompts = [
             "Without saying 'chopper' give us your best Arnold impersonation!",
             "Show us how you act when you're bored.",
-            "What superpower would you give your mother?"
+            "What superpower would you give your mother?",
+            "Strike a pose",
+            "Show us Blue Steel",
+            "Show us Robert DeNiro"
         ];
 
 

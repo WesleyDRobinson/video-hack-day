@@ -26,8 +26,12 @@ app.controller("RecordCtrl",
                 console.log("added record with id " + id);
                 myArr.$indexFor(id); // returns location in the array
 
-                myArr.forEach(function(video) {
+                var users = [];
+                myArr.forEach(function(video, i) {
+                  if(users.indexOf(video.user) === -1) {
                     jQuery('#video_list').append("<li style='float: left; margin: 10px'><ziggeo ziggeo-video=" + video.token + " ziggeo-width=320 ziggeo-height=240></ziggeo></li>");
+                    users.push(video.user);
+                  }
                 });
                 jQuery('#ziggeo_recorder').hide();
             });
